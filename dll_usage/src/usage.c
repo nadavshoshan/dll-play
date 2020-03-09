@@ -9,8 +9,6 @@ int main(int argc, char** argv) {
 		FARPROC func1 = GetProcAddress(hDll, CALC);
 		FARPROC func2 = GetProcAddress(hDll, ABS);
 
-
-
 		if (func1) {
 			int_from_two_args calc = (int_from_two_args)func1;
 			int res1 = calc(4, 3);
@@ -30,8 +28,12 @@ int main(int argc, char** argv) {
 			printf("The DLL %s was located- but the function %s is wrong.\n", MY_DLL, ABS);
 		}
 
+
+		FreeLibrary(hDll);
 	}
 	else {
 		printf("The DLL %s could not be located.\n", MY_DLL);
 	}
+
+	
 }
